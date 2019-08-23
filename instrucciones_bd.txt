@@ -1,0 +1,32 @@
+create table bebidas (id int auto_increment,
+nombre varchar(30) not null,
+descripcion varchar (30) not null,
+costo int(10) not null,
+precio_final int(10) not null,
+primary key (id)
+);
+
+create table platillos (id int auto_increment,
+nombre varchar(30) not null,
+descripcion varchar (30) not null,
+costo int(10) not null,
+precio_final int(10) not null,
+primary key (id)
+);
+
+create table postres (id int auto_increment,
+nombre varchar(30) not null,
+descripcion varchar (30) not null,
+costo int(10) not null,
+precio_final int(10) not null,
+primary key (id)
+);
+
+insert into bebidas(nombre,descripcion,costo,precio_final) values(
+'agua_horchata','individual',5,15);
+
+insert into platillos(nombre,descripcion,costo,precio_final) values(
+'taco_birria','individual',3,10);
+
+insert into postres(nombre,descripcion,costo,precio_final) values(
+'arroz_c_leche','individual',5,20);
