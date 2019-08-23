@@ -26,7 +26,7 @@ insert into bebidas(nombre,descripcion,costo,precio_final) values(
 'agua_horchata','individual',5,15);
 
 insert into platillos(nombre,descripcion,costo,precio_final) values(
-'taco_birria','individual',3,10);
+'quesadilla_birria','harina',10,25);
 
 insert into postres(nombre,descripcion,costo,precio_final) values(
 'arroz_c_leche','individual',5,20);
