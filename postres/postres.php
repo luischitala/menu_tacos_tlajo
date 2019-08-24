@@ -31,14 +31,14 @@
 		</div>
 	</div>
 </header>
-<main>
 <main class="container-fluid" style="background: #53687e; height: 525px; padding-top: 20px;">
 	<div class="row">
 		<div class="col-6">
 			<blockquote>
+				
 					<frameset>
-						<h4 style="color:white;">Agregar Platillo</h4>
-					<form method="POST" action="guardar_platillo.php">
+						<h4 style="color:white;">Agregar Postre</h4>
+					<form method="POST" action="guardar_postre.php">
 					<label style="color:white;">Nombre:</label><br />
 					<input type="text" name="nombre"><br />
 					<label style="color:white;">Descripcion:</label><br />
@@ -51,6 +51,7 @@
 					</form>
 					</frameset>
 				</blockquote>
+		
 		</div>
 		<div class="col-6" style="background: white;" >
 			<?php
@@ -59,21 +60,21 @@
 
 				if ( isset( $_GET["q"] ) ){
 					$q = $_GET["q"];
-					$statement = $conexion->prepare('select * from platillos where nombre like "%' . $q . '%"');	
+					$statement = $conexion->prepare('select * from postres where nombre like "%' . $q . '%"');	
 				}else{
-					$statement = $conexion->prepare('select * from platillos');	
+					$statement = $conexion->prepare('select * from postres');	
 				}
 				
 				$statement->execute();
 
-				checar_error("Error al intetar guardar el platillo");
+				checar_error("Error al intetar guardar el postre");
 
 				?>
 				<div class="container-fluid d-flex flex-wrap">
 					<div class="row">
 						<form action="" method="GET" class="form-inline">
 							<div class="col-md-8">
-								<input type="tetx" name="q" class="form-control" placeholder="Buscar platillo">
+								<input type="tetx" name="q" class="form-control" placeholder="Buscar postre">
 							</div>
 							<div class="col-md-4">
 								<input type="submit" value="Buscar" class="btn">
@@ -81,9 +82,8 @@
 						</form>
 					</div>
 				</div>	
-				
- 		
-				<?php
+
+			<?php
 				print("<table border=1 class='table table-bordered table-striped'>");
 
 					print("<tr> ");
@@ -97,7 +97,7 @@
 					foreach ($statement->fetchALL() as $key => $value) {
 					print("<tr>");
 					print("<td>" . $value['id'] . "</td>");
-					print("<td><a href='editar_platillo.php?id=".$value['id']. "'>". $value['nombre']. "</td>");
+					print("<td><a href='editar_postre.php?id=".$value['id']. "'>". $value['nombre']. "</td>");
 					print("<td>". $value['descripcion']. "</td>");
 					print("<td>" . $value['costo'] . "</td>");
 					print("<td>" . $value['precio_final'] . "</td>");
@@ -108,61 +108,8 @@
 		</div>
 	</div>
 </main>
-</main>
+
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
-<!-- <div class="container-fluid " style="background:#53687e; height: 525px; ">
-	<div class="row">
-			<div class="col-6" style="padding-top: 10px;">
-				<?php
-					
-				$statement = $conexion->prepare('select * from platillos');
-				$statement->execute();
-
-				checar_error("Error al intetar guardar el platillo");
-
-				print("<table border=1 class='table table-bordered table-striped' >");
-
-					print("<tr> ");
-					print("<th>ID</th>");
-					print("<th>NOMBRE</th>");
-					print("<th>DESCRIPCION</th>");
-					print("<th>COSTO</th>");
-					print("<th>PRECIO FINAL</th>");
-					print("</tr>");
-
-					foreach ($statement->fetchALL() as $key => $value) {
-					print("<tr> ");
-					print("<td>" . $value['id'] . "</td>");
-					print("<td>". $value['nombre']. "</td>");
-					print("<td>". $value['descripcion']. "</td>");
-					print("<td>" . $value['costo'] . "</td>");
-					print("<td>" . $value['precio_final'] . "</td>");
-					print("</tr>");
-					}	
-					print("<table>");
-					?>
-			</div>
-			<div class="col-6">
- 				<blockquote>
-					<frameset>
-						<h4 style="color:white;">Agregar platillos</h4>
-					<form method="POST" action="guardarplatillo.php">
-					<label>Nombre:</label><br />
-					<input type="text" name="nombre"><br />
-					<label>Descripcion:</label><br />
-					<input type="text" name="descripcion"><br />
-					<label>Costo:</label><br />
-					<input type="text" name="costo"><br />
-					<label>Precio Final:</label><br />
-					<input type="text" name="precio_final"><br />
-					<input type="submit" value="Agregar" />
-					</form>
-					</frameset>
-				</blockquote>
-			</div>
-			
-	</div>
-</div> -->
