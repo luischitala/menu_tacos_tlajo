@@ -1,6 +1,8 @@
 <?php 
 	include_once('../funciones/funciones.php');
+	include_once('../funciones/conexion.php');
  ?>
+
 
 
 <!DOCTYPE html>
@@ -19,7 +21,9 @@
 	<div class="container-fluid headerfx" style="background: #3a4454; height: 100px ">
 		<div class="row">
 			<div class="col 12 d-flex justify-content-start mt-2 mr-3 contactoheader">
-				<h1 style="font-family: Roboto; color: white; ">Mon Resto</h1>
+				<a href="../index.php" style="font-family: Roboto; color: white; ">Mon Resto</a>
+
+			
 				</div>
 				<div class="col 12 d-flex justify-content-left mt-2 ml-3 contactoheader">
 					<?php menu(); ?>
@@ -28,9 +32,11 @@
 	</div>
 </header>
 <main>
-<div class="container-fluid main" style="background:#53687e; height: 525px; ">
+<div class="container-fluid main d-flex flex wrap" style="background:#53687e; height: 525px; ">
+	<div class="row">
+						<div class="col-6" style="padding-top: 10px;">
 						<?php
-						include_once('../funciones/conexion.php');
+					
 						$statement = $conexion->prepare('select * from platillos');
 						$statement->execute();
 
@@ -49,7 +55,8 @@
 							}	
 							print("<table>");
 						 ?>
-						
+						</div>
+						<div class="col-6">
  						<blockquote>
 							<frameset>
 							 <h4 style="color:white;">Agregar platillos</h4>
@@ -57,7 +64,7 @@
 							<label>Nombre:</label><br />
 							<input type="text" name="nombre"><br />
 							<label>Descripcion:</label><br />
-							<input type="text" name="descrpcion"><br />
+							<input type="text" name="descripcion"><br />
 							<label>Costo:</label><br />
 							<input type="text" name="costo"><br />
 							<label>Precio Final:</label><br />
@@ -66,6 +73,8 @@
 							</form>
 							</frameset>
 						</blockquote>
+						</div>
+	</div>
 </div>
 </main>
 <script src="../js/jquery-3.2.1.min.js"></script>
