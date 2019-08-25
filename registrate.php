@@ -2,7 +2,7 @@
 
 
 if (isset($_SESSION['nombre'])) {
-	header('Location: index.php');
+	header('Location: login.php');
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$nombre = filter_var(strtolower($_POST['nombre']), FILTER_SANITIZE_STRING);
@@ -30,10 +30,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$contrasena = hash('sha512',$contrasena);
 		$contrasena2 = hash('sha512',$contrasena2);
-		echo "$nombre . $contrasena . $contrasena2";
+		
+		if ($contrasena != $contrasena2) {
+			$errores .= '<li style="color:white;">Las contraseñas no son iguales</li>';
+		}
 
 	}
+
+	if ($errores == '') {
+		$statement = $conexion->prepare('insert into usuarios (id,nombre,contrasena) values (null,:nombre,:contrasena)');
+		$statement->execute(array('nombre' => $nombre, 'contrasena' => $contrasena));
+		$statement->debugDumpParams();
+		header('Location: login.php');
+	}
 }
+
 require 'view/registrate.view.php'
 
  ?>

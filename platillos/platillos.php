@@ -22,7 +22,7 @@
 			<div class="row nav rounded-top align-items-stretch justify-content-between">
 					<!-- logotipo -->
 				<div class="col-md-12 col-lg logo d-flex align-items-center justify-content-center justify-content-lg-start">
-					<a href="../index.php" style="font-family: Roboto; color: white; font-size: 40px; ">Mon Resto</a>
+					<a href="../home.php" style="font-family: Roboto; color: white; font-size: 40px; ">Mon Resto</a>
 				</div>
 				<nav class="col-md-12 col-lg-auto menu d-flex align-items-stretch flex-wrap flex-sm-nowrap">
 					<a href="../platillos/platillos.php" class="c-1 d-flex align-items-center">
