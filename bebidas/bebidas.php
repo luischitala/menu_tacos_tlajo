@@ -13,24 +13,40 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:300,400,400i,500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/fontello.css">
-	<link rel="stylesheet" href="../css/estilos.css">
+	<link rel="stylesheet" href="css/estilos.css">
 	<title>MonResto</title>
 </head>
 <body>
 <header>
-	<div class="container-fluid headerfx" style="background: #3a4454; height: 100px ">
-		<div class="row">
-			<div class="col 12 d-flex justify-content-start mt-2 mr-3 contactoheader">
-				<a href="../index.php" style="font-family: Roboto; color: white; font-size: 40px; ">Mon Resto</a>
-
-			
+		<div class="container-fluid">
+			<div class="row nav rounded-top align-items-stretch justify-content-between">
+					<!-- logotipo -->
+				<div class="col-md-12 col-lg logo d-flex align-items-center justify-content-center justify-content-lg-start">
+					<a href="../index.php" style="font-family: Roboto; color: white; font-size: 40px; ">Mon Resto</a>
 				</div>
-				<div class="col 12 d-flex justify-content-left mt-2 ml-3 contactoheader">
-					<?php menu2(); ?>
-				</div>
-		</div>
-	</div>
-</header>
+				<nav class="col-md-12 col-lg-auto menu d-flex align-items-stretch flex-wrap flex-sm-nowrap">
+					<a href="../platillos/platillos.php" class="c-1 d-flex align-items-center">
+						<div class="d-flex flex-column text-center">
+							<span>Platillos</span>
+							<i class="icono icon-fast-food"></i>
+						</div>
+					</a>
+					<a href="../bebidas/bebidas.php" class="c-2 d-flex align-items-center">
+						<div class="d-flex flex-column text-center">
+							<span>Bebidas</span>
+							<i class="icono icon-bar"></i>
+						</div>
+					</a>
+					<a href="../postres/postres.php" class="c-3 d-flex align-items-center">
+						<div class="d-flex flex-column text-center">
+							<span>Postres</span>
+							<i class="icono icon-pharmacy"></i>
+						</div>
+					</a>
+				</nav>
+			</div>
+				
+	</header>
 <main>
 <main class="container-fluid" style="background: #53687e; height: 525px; padding-top: 20px;">
 	<div class="row">
